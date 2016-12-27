@@ -54,7 +54,7 @@ album.load = function(albumID, refresh = false) {
 				} else {
 					// Album not public
 					lychee.content.show()
-					lychee.goto()
+					//FIXME lychee.goto()
 				}
 				return false
 			}

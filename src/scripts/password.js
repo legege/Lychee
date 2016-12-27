@@ -12,8 +12,8 @@ password.get = function(albumID, callback) {
 
 	if (lychee.publicMode===false)                                  callback()
 	else if (album.json && album.json.password==='0')               callback()
-	else if (albums.json && albums.getByID(albumID).password==='0') callback()
-	else if (!albums.json && !album.json) {
+	else if (albums.getByID(albumID) && albums.getByID(albumID).password==='0') callback()
+	else if (!albums.getByID(albumID) && !album.json) {
 
 		// Continue without password
 
