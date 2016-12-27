@@ -56,6 +56,23 @@
 		max-height: 100%;
 	}
 
+	.banner-download {
+		position: fixed;
+		bottom: 0px;
+		width: 100%;
+		color: #fff;
+		text-align: center;
+		background: white(.2);
+		padding: 0.5em;
+
+		.iconic {
+			width: 10px;
+			height: 10px;
+			fill: #fff;
+			transition: fill .2s ease-out;
+		}
+	}
+
 	// Previous/Next Buttons -------------------------------------------------------------- //
 	.arrow_wrapper {
 		position: fixed;

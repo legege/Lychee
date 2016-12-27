@@ -136,6 +136,13 @@ build.imageview = function(data, visibleControls) {
 	        <div class='arrow_wrapper arrow_wrapper--next'><a id='next'>${ build.iconic('caret-right') }</a></div>
 	        `
 
+	let showDownload = lychee.publicMode===false || ((album.json && album.json.downloadable && album.json.downloadable==='1') && lychee.publicMode===true)
+	if (showDownload) {
+		html += `
+		        <div class='banner-download' id='banner-download'>Télécharger la photo avec l'icône <svg class="iconic"><use xlink:href="#cloud-download"></use></svg></div>
+		        `
+	}
+	
 	return html
 
 }
