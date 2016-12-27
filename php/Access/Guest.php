@@ -24,6 +24,7 @@ final class Guest extends Access {
 
 			// Photo functions
 			case 'Photo::get':        self::getPhotoAction(); break;
+			case 'Photo::setStar':    self::setPhotoStarAction(); break;
 
 			// Session functions
 			case 'Session::init':     self::initAction(); break;
@@ -106,6 +107,15 @@ final class Guest extends Access {
 		if ($pgP===2)      Response::json($photo->get($_POST['albumID']));
 		else if ($pgP===1) Response::warning('Wrong password!');
 		else if ($pgP===0) Response::warning('Photo private!');
+
+	}
+
+	private static function setPhotoStarAction() {
+
+		Validator::required(isset($_POST['photoIDs']), __METHOD__);
+
+		$photo = new Photo($_POST['photoIDs']);
+		Response::json($photo->setStar());
 
 	}
 

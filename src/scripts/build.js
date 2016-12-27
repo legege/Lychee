@@ -55,21 +55,24 @@ build.album = function(data) {
 	                <h1 title='$${ data.title }'>$${ data.title }</h1>
 	                <a>$${ data.sysdate }</a>
 	            </div>
+		        <div class='badges'>
+		            <a class='badge $${ (data.star==='1'     ? 'badge--visible' : '') } icn-star'>${ build.iconic('star') }</a>
 	        `
 
 	if (lychee.publicMode===false) {
 
 		html += lychee.html`
-		        <div class='badges'>
-		            <a class='badge $${ (data.star==='1'     ? 'badge--visible' : '') } icn-star'>${ build.iconic('star') }</a>
 		            <a class='badge $${ (data.public==='1'   ? 'badge--visible' : '') } icn-share'>${ build.iconic('eye') }</a>
 		            <a class='badge $${ (data.unsorted==='1' ? 'badge--visible' : '') }'>${ build.iconic('list') }</a>
 		            <a class='badge $${ (data.recent==='1'   ? 'badge--visible' : '') }'>${ build.iconic('clock') }</a>
 		            <a class='badge $${ (data.password==='1' ? 'badge--visible' : '') }'>${ build.iconic('lock-locked') }</a>
-		        </div>
 		        `
 
 	}
+
+	html += lychee.html`
+		        </div>
+		    `
 
 	html += '</div>'
 
@@ -95,17 +98,18 @@ build.photo = function(data) {
 
 	html += `</div>`
 
-	if (lychee.publicMode===false) {
-
-		html += lychee.html`
+	html += lychee.html`
 		        <div class='badges'>
 		            <a class='badge $${ (data.star==='1'                                ? 'badge--visible' : '') } icn-star'>${ build.iconic('star') }</a>
-		            <a class='badge $${ ((data.public==='1' && album.json.public!=='1') ? 'badge--visible' : '') } icn-share'>${ build.iconic('eye') }</a>
-		        </div>
 		        `
 
+	if (lychee.publicMode===false) {
+		html += lychee.html`
+		            <a class='badge $${ ((data.public==='1' && album.json.public!=='1') ? 'badge--visible' : '') } icn-share'>${ build.iconic('eye') }</a>
+		        `
 	}
 
+	html += `    </div>`
 	html += `</div>`
 
 	return html
