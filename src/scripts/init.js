@@ -83,6 +83,11 @@ $(document).ready(function() {
 					else                  header.show()
 				}
 			})
+			.on('touchstart', function(e) {
+				if (e.touches.length > 1) {
+    				e.preventDefault();
+  				}
+			})
 
 			// Swipe on mobile
 			.swipe().on('swipeStart', function() { if (visible.photo()) swipe.start($('#imageview #image')) })
