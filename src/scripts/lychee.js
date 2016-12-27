@@ -239,12 +239,13 @@ lychee.setMode = function(mode) {
 
 	$('#button_settings, #button_trash_album, .button_add, .header__divider').remove()
 	$('#button_trash, #button_move').remove()
+	$('#button_back_home, #button_info, #button_info_album').remove()
 
-	$('#button_share, #button_share_album')
-		.removeClass('button--eye')
-		.addClass('button--share')
-		.find('use')
-		.attr('xlink:href', '#share')
+	$('#button_share, #button_share_album').remove()
+	//	.removeClass('button--eye')
+	//	.addClass('button--share')
+	//	.find('use')
+	//	.attr('xlink:href', '#share')
 
 	$(document)
 		.off('click',       '.header__title--editable')
