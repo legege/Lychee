@@ -88,6 +88,11 @@ $(document).ready(function() {
     				e.preventDefault();
   				}
 			})
+			.on('touchmove', function(e) {
+				if (visible.photo()) {
+					e.preventDefault();
+				}
+			})
 
 			// Swipe on mobile
 			.swipe().on('swipeStart', function() { if (visible.photo()) swipe.start($('#imageview #image')) })
