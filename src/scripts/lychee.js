@@ -181,13 +181,12 @@ lychee.load = function() {
 
 		// Trash data
 		photo.json = null
-		
-		album.load(albumID)
 
 		// Show Album
 		if (visible.photo()) view.photo.hide()
 		if (visible.sidebar() && (albumID==='0' || albumID==='f' || albumID==='s' || albumID==='r')) sidebar.toggle()
 		if (album.json && albumID==album.json.id) view.album.title()
+		else album.load(albumID)
 
 	} else {
 
