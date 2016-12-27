@@ -241,7 +241,7 @@ lychee.setMode = function(mode) {
 	$('#button_trash, #button_move').remove()
 	$('#button_back_home, #button_info, #button_info_album').remove()
 
-	$('#button_share, #button_share_album').remove()
+	$('#button_share, #button_share_album, #button_more').remove()
 	//	.removeClass('button--eye')
 	//	.addClass('button--share')
 	//	.find('use')

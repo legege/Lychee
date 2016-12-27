@@ -53,6 +53,7 @@ header.bind = function() {
 	header.dom('#button_star')        .on(eventName, function() { photo.setStar([ photo.getID() ]) })
 	header.dom('#button_back_home')   .on(eventName, function() { lychee.goto() })
 	header.dom('#button_back')        .on(eventName, function() { lychee.goto(album.getID()) })
+	header.dom('#button_download')    .on(eventName, function() { photo.getArchive(photo.getID()) })
 
 	header.dom('.header__search').on('keyup click', function() { search.find($(this).val()) })
 	header.dom('.header__clear').on(eventName, function() {
@@ -155,6 +156,13 @@ header.setMode = function(mode) {
 			header.dom().addClass('header--view')
 			header.dom('.header__toolbar--public, .header__toolbar--albums, .header__toolbar--album').removeClass('header__toolbar--visible')
 			header.dom('.header__toolbar--photo').addClass('header__toolbar--visible')
+
+			let showDownload = lychee.publicMode===false || ((album.json && album.json.downloadable && album.json.downloadable==='1') && lychee.publicMode===true)
+			if (showDownload) {
+				$('#button_download').show()
+			} else {
+				$('#button_download').hide()
+			}
 
 			return true
 			break
