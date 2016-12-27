@@ -139,10 +139,10 @@ build.imageview = function(data, visibleControls) {
 	let showDownload = lychee.publicMode===false || ((album.json && album.json.downloadable && album.json.downloadable==='1') && lychee.publicMode===true)
 	if (showDownload) {
 		html += `
-		        <div class='banner-download' id='banner-download'>Télécharger la photo avec l'icône <svg class="iconic"><use xlink:href="#cloud-download"></use></svg></div>
+		        <div class='banner-download' id='banner-download'>Télécharger la photo haute-résolution avec l'icône <svg class="iconic"><use xlink:href="#cloud-download"></use></svg></div>
 		        `
 	}
-	
+
 	return html
 
 }
@@ -161,7 +161,7 @@ build.no_content = function(typ) {
 			html += `<p>No results</p>`
 			break
 		case 'eye':
-			html += `<p>No public albums</p>`
+			html += `<p>Aucun album public</p>`
 			break
 		case 'cog':
 			html += `<p>No configuration</p>`
